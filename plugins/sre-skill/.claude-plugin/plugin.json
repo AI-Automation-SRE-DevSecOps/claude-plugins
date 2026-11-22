@@ -1,0 +1,13 @@
+{
+  "name": "sre-skill",
+  "version": "1.0.0",
+  "description": "Google SRE practices: SLOs and error budgets, the four golden signals, and alerting philosophy for designing and reviewing monitoring systems",
+  "author": {
+    "name": "AI-Automation-SRE-DevSecOps",
+    "url": "https://github.com/AI-Automation-SRE-DevSecOps"
+  },
+  "homepage": "https://github.com/AI-Automation-SRE-DevSecOps/claude-plugins",
+  "repository": "https://github.com/AI-Automation-SRE-DevSecOps/claude-plugins",
+  "license": "MIT",
+  "keywords": ["sre", "slo", "monitoring", "alerting", "observability", "prometheus"]
+}

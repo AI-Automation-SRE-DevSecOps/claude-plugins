@@ -1,0 +1,22 @@
+{
+  "name": "sre-devsecops",
+  "owner": {
+    "name": "AI-Automation-SRE-DevSecOps",
+    "url": "https://github.com/AI-Automation-SRE-DevSecOps"
+  },
+  "metadata": {
+    "description": "Reviewed Claude Code plugins for SRE and DevSecOps work",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "sre-skill",
+      "source": "./plugins/sre-skill",
+      "description": "Google SRE practices: SLOs and error budgets, the four golden signals, and alerting philosophy for designing and reviewing monitoring systems",
+      "version": "1.0.0",
+      "license": "MIT",
+      "keywords": ["sre", "slo", "monitoring", "alerting", "observability", "prometheus"],
+      "category": "devops"
+    }
+  ]
+}
