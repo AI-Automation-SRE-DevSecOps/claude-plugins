@@ -8,7 +8,7 @@ No need to clone anything. In Claude Code, run:
 
 ```
 /plugin marketplace add AI-Automation-SRE-DevSecOps/claude-plugins
-/plugin install sre-skill@sre-devsecops
+/plugin install sre-engineering@sre-devsecops
 ```
 
 Then restart Claude Code so the new skills and commands are loaded.
@@ -24,34 +24,40 @@ You can also run `/plugin` with no arguments to browse and manage plugins from a
 ### Uninstall
 
 ```
-/plugin uninstall sre-skill@sre-devsecops
+/plugin uninstall sre-engineering@sre-devsecops
 ```
 
 ## Plugins
 
 | Plugin | What it does |
 |---|---|
-| [`sre-skill`](plugins/sre-skill/) | Google SRE practices: SLOs and error budgets, the four golden signals, and alerting philosophy |
+| [`sre-engineering`](plugins/sre-engineering/) | Google SRE practice from the SRE Book and SRE Workbook: SLOs and error budget policy, monitoring and burn-rate alerting, on-call, incidents, postmortems, toil, releases, overload, capacity and launch reviews |
 
-### `sre-skill`
+### `sre-engineering`
 
-**Skill:** `sre-engineer`. Claude loads it automatically for SRE, SLO, monitoring and alerting questions. You can also call it directly with `/sre-skill:sre-engineer`.
+**Skill:** `sre-engineer`. Claude loads it automatically for SRE questions: SLOs, alerting, on-call, incidents, postmortems, toil, rollouts, overload and capacity. You can also call it directly with `/sre-engineering:sre-engineer`. Its reference files are summaries of every chapter of [*Site Reliability Engineering*](https://sre.google/sre-book/table-of-contents/) and [*The Site Reliability Workbook*](https://sre.google/workbook/table-of-contents/). `references/sources.md` maps each chapter to a file.
 
 **Commands:**
 
 | Command | What it does |
 |---|---|
-| `/sre-skill:design-monitoring <service>` | Designs a monitoring and alerting system: SLIs/SLOs, golden signals, collection intervals, burn-rate alerts, an alert review table, runbooks and config |
-| `/sre-skill:review-alerts [file or dir]` | Reviews existing alert rules against Google's five alert questions and recommends keep / change / downgrade / delete / automate |
-| `/sre-skill:define-slo <service>` | Defines SLIs, SLO targets, error budgets, multi-window burn-rate alerts and an error budget policy |
+| `/sre-engineering:define-slo <service>` | Defines SLIs, SLOs on a 4-week window, the error budget, multiwindow burn-rate alerts, the error budget policy and an SLO document |
+| `/sre-engineering:design-monitoring <service>` | Designs monitoring and alerting: golden signals, metrics with purpose, burn-rate alerts, an alert review table, playbooks, dashboards, tests and config |
+| `/sre-engineering:review-alerts [file or dir]` | Reviews alert rules against Google's five questions and burn-rate practice, and recommends keep / change / downgrade / delete / automate |
+| `/sre-engineering:write-postmortem <incident>` | Drafts or reviews a blameless postmortem that separates trigger from root cause and has typed, owned action items |
+| `/sre-engineering:production-readiness-review <service>` | Runs a PRR or launch review against Google's launch checklist, and ranks findings by error budget impact |
 
 Examples:
 
 ```
-/sre-skill:design-monitoring checkout API on EKS behind an ALB
-/sre-skill:review-alerts terraform/aws/modules/monitoring
-/sre-skill:define-slo payments API
+/sre-engineering:define-slo payments API
+/sre-engineering:design-monitoring checkout API on EKS behind an ALB
+/sre-engineering:review-alerts terraform/aws/modules/monitoring
+/sre-engineering:write-postmortem incidents/2026-11-20-checkout-outage.md
+/sre-engineering:production-readiness-review services/checkout
 ```
+
+See [CHANGELOG.md](plugins/sre-engineering/CHANGELOG.md) for everything corrected in 2.0.0. The per-chapter source notes are in [docs/sre-notes/](docs/sre-notes/).
 
 ## Repository layout
 
@@ -117,23 +123,6 @@ A skill is instructions Claude will follow, so treat it like code you run:
 
 | Plugin / skill | Source | Commit reviewed | License |
 |---|---|---|---|
-| `sre-skill` / `sre-engineer` | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills) | `4b94d98` | MIT ([LICENSE](plugins/sre-skill/LICENSE)) |
+| `sre-engineering` / `sre-engineer` | Originally imported from [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills); rewritten in 2.0.0 against Google's SRE Book and SRE Workbook | `4b94d98` | MIT ([LICENSE](plugins/sre-engineering/LICENSE)) |
 
-### Changes from the original `sre-engineer`
-
-- Added `references/alerting-philosophy.md`: Google SRE's five alert-review questions, the four rules for pages, symptoms over causes, and a required alert review table.
-- `SKILL.md`: links that file, and adds matching MUST / MUST NOT rules and an alerting trigger in the description.
-- Added the `design-monitoring`, `review-alerts` and `define-slo` commands.
-
-### Known issues still in `sre-engineer`
-
-These come from the original examples and are not fixed yet:
-
-1. `SKILL.md`: the CPU saturation query divides `throttled_seconds_total` by `cfs_periods_total` (mismatched units). Use `throttled_periods_total / cfs_periods_total`.
-2. `SKILL.md`: the slow-burn alert's comment says 6×, but its threshold is `0.001` (1×). It should be `0.006`.
-3. `references/monitoring-alerting.md`: the alerts use `error_rate1h`, `6h` and `1d` recording rules that are never defined.
-4. `references/slo-sli-management.md`: the latency SLI compares a single p95 value with 500 ms, instead of measuring the fraction of requests under 500 ms.
-5. Good events are defined inconsistently: some queries count `4xx` as success, others only `2xx`.
-6. `references/incident-chaos.md`: the business-hours check is inverted, and the example kills 50% of pods in `production`.
-
-The `define-slo` command spells out the correct burn-rate windows and SLI definitions, so it works around items 2–5.
+The 2.0.0 rewrite fixed every known issue from the original import: the slow-burn threshold, undefined recording rules, the percentile-based latency SLI, inconsistent good-event definitions, the CPU throttling query, and the inverted chaos business-hours check. It also fixed errors found by comparing against the books, such as invented error budget tiers, the 30-day window and unsafe automation examples. The full list is in [CHANGELOG.md](plugins/sre-engineering/CHANGELOG.md).
