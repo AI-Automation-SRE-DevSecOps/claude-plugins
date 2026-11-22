@@ -1,0 +1,13 @@
+{
+  "name": "sre-engineering",
+  "version": "2.0.0",
+  "description": "Google SRE practice from the SRE Book and SRE Workbook: SLOs and error budget policy, monitoring and burn-rate alerting, on-call, incident response, postmortems, toil, releases and canarying, overload protection, capacity and launch reviews",
+  "author": {
+    "name": "AI-Automation-SRE-DevSecOps",
+    "url": "https://github.com/AI-Automation-SRE-DevSecOps"
+  },
+  "homepage": "https://github.com/AI-Automation-SRE-DevSecOps/claude-plugins",
+  "repository": "https://github.com/AI-Automation-SRE-DevSecOps/claude-plugins",
+  "license": "MIT",
+  "keywords": ["sre", "slo", "error-budget", "monitoring", "alerting", "on-call", "incident-response", "postmortem", "toil", "canary", "capacity-planning", "prometheus"]
+}

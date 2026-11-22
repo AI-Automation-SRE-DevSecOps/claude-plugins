@@ -6,16 +6,16 @@
   },
   "metadata": {
     "description": "Reviewed Claude Code plugins for SRE and DevSecOps work",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "plugins": [
     {
-      "name": "sre-skill",
-      "source": "./plugins/sre-skill",
-      "description": "Google SRE practices: SLOs and error budgets, the four golden signals, and alerting philosophy for designing and reviewing monitoring systems",
-      "version": "1.0.0",
+      "name": "sre-engineering",
+      "source": "./plugins/sre-engineering",
+      "description": "Google SRE practice from the SRE Book and SRE Workbook: SLOs and error budget policy, monitoring and burn-rate alerting, on-call, incident response, postmortems, toil, releases and canarying, overload protection, capacity and launch reviews",
+      "version": "2.0.0",
       "license": "MIT",
-      "keywords": ["sre", "slo", "monitoring", "alerting", "observability", "prometheus"],
+      "keywords": ["sre", "slo", "error-budget", "monitoring", "alerting", "on-call", "incident-response", "postmortem", "toil", "canary", "capacity-planning", "prometheus"],
       "category": "devops"
     }
   ]
