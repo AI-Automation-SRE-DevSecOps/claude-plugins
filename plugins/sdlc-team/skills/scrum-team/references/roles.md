@@ -36,10 +36,10 @@ Each role is a subagent in `agents/`. Its own file holds its knowledge and rules
 ## Spawn prompt template
 
 ```
-Run: <run-id>   Folder: .sdlc-team/<run-id>/   Board: mem|files   Your role: <role>
+Run: <run-id>   Folder: .sdlc-team/<run-id>/   Your role: <role>
 Step: <step name> (<workflow file>)
 Read: brief.md, backlog.md<, other files>. Board items addressed to you: <ids or "read the board">.
 Do: <what this role must produce in this step>
-Write: <file/section>. Post questions/decisions/issues on the board.
+Write: <file/section> inside the run folder. Post questions/decisions/issues on the board.
 Return: ≤200 words — done, files written, posts, open questions, blockers.
 ```
