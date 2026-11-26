@@ -35,7 +35,7 @@
       "name": "sdlc-team",
       "source": "./plugins/sdlc-team",
       "description": "A virtual software team of subagents (PO, BA, architect, developer, security, QA, QE, QC, SRE) that takes a task, user story, incident or CVE through Scrum-style refinement, planning, implementation, testing, monitoring and acceptance",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "license": "MIT",
       "keywords": [
         "scrum",

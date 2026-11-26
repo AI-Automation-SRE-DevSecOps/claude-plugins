@@ -94,10 +94,9 @@ The team is right-sized: a one-line fix uses developer, QC and PO; a story touch
 
 **Where things go:** every run writes its records to `.sdlc-team/<run-id>/` in your project (brief, backlog with AC and DoD, decisions, test plan and reports, QC report, postmortem or vulnerability record, final report). Add `.sdlc-team/` to `.gitignore` if you don't want it in git.
 
-**How roles talk:** subagents can't call each other, so they post questions, answers, decisions and issues on a board, and the facilitator relays between them.
-- If [agent-memory](https://github.com/AI-Automation-SRE-DevSecOps/agent-memory) is installed (`mem` on your PATH), the board is `mem board`. At the end, the team's decisions and lessons are promoted into long-term memory, so the next run starts smarter.
-- Without it, the board is plain files in the run folder.
-- If you've turned on Claude Code's experimental agent teams, roles can also message each other directly.
+**How roles talk:** subagents can't call each other, so they post questions, answers, decisions and issues as files on a board in the run folder, and the facilitator relays between them. If you've turned on Claude Code's experimental agent teams, roles can also message each other directly.
+
+**Memory:** the plugin doesn't depend on any memory tool. If your CLAUDE.md or rules set up a long-term memory, the team follows those instructions too.
 
 **Safety:** the team stops for your approval after planning, before anything leaves your working tree (push, PR, deploy), and before any production or shared-environment action. It never fakes test results, and the report lists what didn't run.
 

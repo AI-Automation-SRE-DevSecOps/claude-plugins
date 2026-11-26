@@ -1,6 +1,6 @@
 # Run folder and templates
 
-Every run lives in `.sdlc-team/<run-id>/` in the project. Suggest adding `.sdlc-team/` to `.gitignore` unless the team wants the records in git.
+Every run lives in `.sdlc-team/<run-id>/` in the project. All the files below are inside that folder, never in the project root. Suggest adding `.sdlc-team/` to `.gitignore` unless the team wants the records in git.
 
 | File | Owner | Written in |
 |---|---|---|
@@ -15,7 +15,7 @@ Every run lives in `.sdlc-team/<run-id>/` in the project. Suggest adding `.sdlc-
 | `incident.md`, `postmortem.md` | facilitator (IC), business-analyst (timeline) | Incident workflow |
 | `vuln.md` | security-engineer | CVE workflow |
 | `report.md` | facilitator | End |
-| `board/` | everyone (files backend only) | always |
+| `board/` | everyone | always |
 
 Several roles may write to `backlog.md`. Each role edits only its own sections or fields. When two roles might write at the same time, the later one re-reads the file first.
 
@@ -23,7 +23,7 @@ Several roles may write to `backlog.md`. Each role edits only its own sections o
 
 ```markdown
 # <run-id>
-Type: delivery | incident | cve      Board: mem | files      Started: <date>
+Type: delivery | incident | cve      Started: <date>
 ## Work item
 <verbatim text, ticket key or link>
 ## Context

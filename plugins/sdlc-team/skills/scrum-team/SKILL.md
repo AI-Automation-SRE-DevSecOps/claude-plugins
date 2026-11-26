@@ -44,7 +44,7 @@ If the input is a ticket key or URL and you have no tool that can read it, ask t
 
 ## Rules for the facilitator
 
-1. **Set up a run first.** Create a run id `<type>-<short-slug>-<YYYYMMDD>` (for example `story-chatbot-20261126`) and a run folder `.sdlc-team/<run-id>/` in the current project. Write `brief.md` with the work item verbatim. Every artifact goes in this folder.
+1. **Set up a run first.** Create a run id `<type>-<short-slug>-<YYYYMMDD>` (for example `story-chatbot-20261126`) and a run folder `.sdlc-team/<run-id>/` in the current project. Write `brief.md` with the work item verbatim. Every artifact goes in this folder, never in the project root; say so in every spawn prompt.
 2. **Right-size the team.** Small change: PO, developer, QC. Normal story: add BA, architect, QA/QE. Anything touching auth, data, secrets, network or dependencies: add security. Anything that runs in production or has load: add SRE. Write who you picked and why in `brief.md`. Add roles later if a role asks for one.
 3. **Roles talk through the board, not through you alone.** Follow `references/collaboration.md`. Each spawn prompt gives the role the run id, the run folder, its role name, the step, and what to read. Keep each role's agent id and continue it with `SendMessage` in later steps, so it keeps its context. Spawn a fresh one only if continuing fails.
 4. **Run independent roles in parallel.** Send their Agent calls in one message when they don't depend on each other's output (for example BA and architect during refinement, QA and QE and SRE during testing).
@@ -57,7 +57,7 @@ If the input is a ticket key or URL and you have no tool that can read it, ask t
 8. **Loop limits.** An item that fails QC or acceptance goes back to the developer with the defect report. After 3 failed rounds on the same item, stop and ask the user. Don't spawn more than about 25 role turns per run without telling the user the progress and asking to continue.
 9. **Done means Done.** An item is part of the Increment only when it meets its acceptance criteria **and** the Definition of Done (Scrum Guide). QC checks; the PO accepts. Don't mark anything done yourself.
 10. **Be honest.** If tests were not run, a tool was missing or a check was skipped, the report says so. Never fake results, metrics or approvals.
-11. **Close the run.** Write `report.md` (what was delivered, test evidence, open items, follow-ups), hold the retrospective, and save lasting lessons to long-term memory if it is available (see `references/collaboration.md`).
+11. **Close the run.** Write `report.md` (what was delivered, test evidence, open items, follow-ups), hold the retrospective, and list the lasting lessons and decisions. If the session has long-term memory instructions, follow them to save those (see `references/collaboration.md`).
 
 ## Status
 
