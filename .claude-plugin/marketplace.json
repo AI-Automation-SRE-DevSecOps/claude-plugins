@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Reviewed Claude Code plugins for SRE and DevSecOps work",
-    "version": "1.1.0"
+    "version": "1.2.0"
   },
   "plugins": [
     {
@@ -15,8 +15,43 @@
       "description": "Google SRE practice from the SRE Book and SRE Workbook: SLOs and error budget policy, monitoring and burn-rate alerting, on-call, incident response, postmortems, toil, releases and canarying, overload protection, capacity and launch reviews",
       "version": "2.0.0",
       "license": "MIT",
-      "keywords": ["sre", "slo", "error-budget", "monitoring", "alerting", "on-call", "incident-response", "postmortem", "toil", "canary", "capacity-planning", "prometheus"],
+      "keywords": [
+        "sre",
+        "slo",
+        "error-budget",
+        "monitoring",
+        "alerting",
+        "on-call",
+        "incident-response",
+        "postmortem",
+        "toil",
+        "canary",
+        "capacity-planning",
+        "prometheus"
+      ],
       "category": "devops"
+    },
+    {
+      "name": "sdlc-team",
+      "source": "./plugins/sdlc-team",
+      "description": "A virtual software team of subagents (PO, BA, architect, developer, security, QA, QE, QC, SRE) that takes a task, user story, incident or CVE through Scrum-style refinement, planning, implementation, testing, monitoring and acceptance",
+      "version": "1.0.0",
+      "license": "MIT",
+      "keywords": [
+        "scrum",
+        "sdlc",
+        "multi-agent",
+        "subagents",
+        "user-story",
+        "definition-of-done",
+        "acceptance-criteria",
+        "incident-response",
+        "cve",
+        "vulnerability-management",
+        "qa",
+        "sre"
+      ],
+      "category": "development"
     }
   ]
 }

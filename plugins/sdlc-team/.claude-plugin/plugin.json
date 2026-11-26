@@ -1,0 +1,13 @@
+{
+  "name": "sdlc-team",
+  "version": "1.0.0",
+  "description": "A virtual software team of subagents (PO, BA, architect, developer, security, QA, QE, QC, SRE) that takes a task, user story, incident or CVE through Scrum-style refinement, planning, implementation, testing, monitoring and acceptance",
+  "author": {
+    "name": "AI-Automation-SRE-DevSecOps",
+    "url": "https://github.com/AI-Automation-SRE-DevSecOps"
+  },
+  "homepage": "https://github.com/AI-Automation-SRE-DevSecOps/claude-plugins",
+  "repository": "https://github.com/AI-Automation-SRE-DevSecOps/claude-plugins",
+  "license": "MIT",
+  "keywords": ["scrum", "sdlc", "multi-agent", "subagents", "user-story", "definition-of-done", "acceptance-criteria", "incident-response", "cve", "vulnerability-management", "qa", "sre"]
+}
