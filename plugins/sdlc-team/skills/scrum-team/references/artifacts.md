@@ -1,9 +1,10 @@
 # Run folder and templates
 
-Every run lives in `.sdlc-team/<run-id>/` in the project. All the files below are inside that folder, never in the project root. Suggest adding `.sdlc-team/` to `.gitignore` unless the team wants the records in git.
+Every run has one **run folder**, picked at intake (see "Pick the store" in `collaboration.md`): the path from `mem board path --run <run-id>` with the memory store, or `.sdlc-team/<run-id>/` in the project with the file store. All the files below are inside the run folder, never in the project root. Only product code and tests go in the project.
 
 | File | Owner | Written in |
 |---|---|---|
+| `status.md` | facilitator | Intake, then after every step |
 | `brief.md` | facilitator | Intake |
 | `backlog.md` | product-owner (goal, order), business-analyst (stories, AC), architect + developer (subtasks), qc-engineer (DoD) | Refinement, Planning; status updated by everyone |
 | `decisions.md` | the deciding role | any step |
@@ -15,15 +16,33 @@ Every run lives in `.sdlc-team/<run-id>/` in the project. All the files below ar
 | `incident.md`, `postmortem.md` | facilitator (IC), business-analyst (timeline) | Incident workflow |
 | `vuln.md` | security-engineer | CVE workflow |
 | `report.md` | facilitator | End |
-| `board/` | everyone | always |
+| board | everyone | always (memory store: `mem board`; file store: `board/`) |
 
 Several roles may write to `backlog.md`. Each role edits only its own sections or fields. When two roles might write at the same time, the later one re-reads the file first.
+
+## status.md
+
+The one-page answer to "where are we?". Every role reads it first; the facilitator rewrites it after each step.
+
+```markdown
+# Status: <run-id>
+Step: <current workflow step>        Updated: <date -u time>
+## Items
+ITEM-1 <title>: <todo | in progress | review | testing | done | rejected (round n)>
+## Waiting on
+<role>: <what, board post id>
+## Blockers
+<none, or what and who can unblock>
+## Next
+<the next step and who does it>
+```
 
 ## brief.md
 
 ```markdown
 # <run-id>
 Type: delivery | incident | cve      Started: <date>
+Store: memory | files      Run folder: <absolute path>      Project folder: <repo path>
 ## Work item
 <verbatim text, ticket key or link>
 ## Context
