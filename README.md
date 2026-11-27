@@ -92,11 +92,17 @@ You give it a work item. The main conversation acts as **Scrum Master** (or **In
 
 The team is right-sized: a one-line fix uses developer, QC and PO; a story touching auth adds security; anything that runs in production adds SRE.
 
-**Where things go:** every run writes its records to `.sdlc-team/<run-id>/` in your project (brief, backlog with AC and DoD, decisions, test plan and reports, QC report, postmortem or vulnerability record, final report). Add `.sdlc-team/` to `.gitignore` if you don't want it in git.
+**Where things go:** every run has one run folder that all roles share: `status.md` (where the run stands), the brief, the backlog with AC and DoD, decisions, test plan and reports, QC report, postmortem or vulnerability record, and the final report. Its place depends on whether you use [agent-memory](https://github.com/AI-Automation-SRE-DevSecOps/agent-memory):
 
-**How roles talk:** subagents can't call each other, so they post questions, answers, decisions and issues as files on a board in the run folder, and the facilitator relays between them. If you've turned on Claude Code's experimental agent teams, roles can also message each other directly.
+| | With agent-memory | Without |
+|---|---|---|
+| Run folder | inside that project's memory: `~/.agent-memory/projects/<repo>/teams/<run-id>/`, so your repo stays clean | `.sdlc-team/<run-id>/` in your project, added to `.gitignore` |
+| Board (roles talking) | `mem board` commands | one file per post in the run folder |
+| Lessons at the end | turned into notes of that project (`mem board promote`), so the next run starts with them | listed in `report.md` |
 
-**Memory:** the plugin doesn't depend on any memory tool. If your CLAUDE.md or rules set up a long-term memory, the team follows those instructions too.
+Each project has its own runs: a Python app's team never sees a Node app's runs. If the session isn't in a git repo, the team asks which project the run is for. With agent-memory, allow the memory folder once so roles can write run files without a prompt for each: `"permissions": { "additionalDirectories": ["~/.agent-memory"] }` in `~/.claude/settings.json`.
+
+**How roles talk:** subagents can't call each other, so they post questions, answers, decisions and issues on the run's board, and the facilitator relays between them. If you've turned on Claude Code's experimental agent teams, roles can also message each other directly.
 
 **Safety:** the team stops for your approval after planning, before anything leaves your working tree (push, PR, deploy), and before any production or shared-environment action. It never fakes test results, and the report lists what didn't run.
 
