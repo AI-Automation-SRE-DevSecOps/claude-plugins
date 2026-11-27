@@ -92,15 +92,9 @@ You give it a work item. The main conversation acts as **Scrum Master** (or **In
 
 The team is right-sized: a one-line fix uses developer, QC and PO; a story touching auth adds security; anything that runs in production adds SRE.
 
-**Where things go:** every run has one run folder that all roles share: `status.md` (where the run stands), the brief, the backlog with AC and DoD, decisions, test plan and reports, QC report, postmortem or vulnerability record, and the final report. Its place depends on whether you use [agent-memory](https://github.com/AI-Automation-SRE-DevSecOps/agent-memory):
+**Where things go:** every run has one run folder that all roles share: `status.md` (where the run stands), the brief, the backlog with AC and DoD, decisions, test plan and reports, QC report, postmortem or vulnerability record, and the final report. The board (roles talking) is one file per post in the same folder, and the lessons from the retrospective are listed in `report.md`.
 
-| | With agent-memory | Without |
-|---|---|---|
-| Run folder | inside that project's memory: `~/.agent-memory/projects/<repo>/teams/<run-id>/`, so your repo stays clean | `.sdlc-team/<run-id>/` in your project, added to `.gitignore` |
-| Board (roles talking) | `mem board` commands | one file per post in the run folder |
-| Lessons at the end | turned into notes of that project (`mem board promote`), so the next run starts with them | listed in `report.md` |
-
-Each project has its own runs: a Python app's team never sees a Node app's runs. If the session isn't in a git repo, the team asks which project the run is for. With agent-memory, allow the memory folder once so roles can write run files without a prompt for each: `"permissions": { "additionalDirectories": ["~/.agent-memory"] }` in `~/.claude/settings.json`.
+The skill knows no memory tool. If your session's instructions (CLAUDE.md, AGENTS.md, Cursor rules) describe a long-term memory that gives a place for team runs, the run folder goes there, for example [agent-memory](https://github.com/AI-Automation-SRE-DevSecOps/agent-memory) keeps it inside that project's memory, so your repo stays clean. Otherwise it is `.sdlc-team/<run-id>/` in your project, added to `.gitignore`. What gets saved to long-term memory, and where, is up to that memory's own rules.
 
 **How roles talk:** subagents can't call each other, so they post questions, answers, decisions and issues on the run's board, and the facilitator relays between them. If you've turned on Claude Code's experimental agent teams, roles can also message each other directly.
 

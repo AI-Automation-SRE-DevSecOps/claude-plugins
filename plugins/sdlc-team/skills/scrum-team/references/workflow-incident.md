@@ -59,4 +59,4 @@ The facilitator is the **Incident Commander (IC)**. It holds every role it hasn'
 - Write a **blameless postmortem** in `postmortem.md` (template in `artifacts.md`). Write one for every user-visible incident, data loss, manual intervention or long resolution, and whenever the user asks. Focus on systems and processes, never on who did it.
 - Action items are typed (**mitigate / prevent / detect / process**), each with one owner role, a priority, and a link to a backlog item. Prefer items that make the failure impossible or automatically detected over items that rely on people being careful.
 - If the incident used more than 20% of an SLO's error budget, at least one P0 action item is required (SRE Workbook, error budget policy).
-- Retrospective lessons → memory, as described in `collaboration.md`.
+- Retrospective lessons → `report.md`, as described in `collaboration.md`.

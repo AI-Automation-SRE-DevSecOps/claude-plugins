@@ -37,9 +37,8 @@ Each role is a subagent in `agents/`. Its own file holds its knowledge and rules
 
 ```
 Run: <run-id>   Your role: <role>
-Store: memory | files   Run folder: <absolute path>   Project folder: <repo path>
-Board: <memory: mem board read --run <run-id> --for <role> --status open; post/reply/close as in collaboration.md, with --dir <project folder> if needed>
-       <files: one file per post in <run folder>/board/, format in collaboration.md>
+Run folder: <absolute path>   Project folder: <repo path>
+Board: one file per post in <run folder>/board/, format in collaboration.md
 Step: <step name> (<workflow file>)
 Read: status.md, brief.md, backlog.md<, other files> in the run folder. Board items addressed to you: <ids or "read the board">.
 Do: <what this role must produce in this step>

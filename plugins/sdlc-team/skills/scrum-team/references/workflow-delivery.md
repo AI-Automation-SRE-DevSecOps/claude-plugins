@@ -15,8 +15,8 @@ Each step lists the roles, what they produce, and its **exit criteria**. Don't l
 
 ## 0. Intake (facilitator)
 
-- Pick the store and get the run folder (see "Pick the store" in `collaboration.md`).
-- Write `brief.md`: the work item verbatim, its source (ticket key, user), the store and run folder, the repo and stack you can see, and who you're bringing in (see `roles.md`). Write the first `status.md`.
+- Pick the run folder (see "Pick the run folder" in `collaboration.md`).
+- Write `brief.md`: the work item verbatim, its source (ticket key, user), the run folder, the repo and stack you can see, and who you're bringing in (see `roles.md`). Write the first `status.md`.
 - Scan the repository just enough to describe it: languages, build and test commands, CI, deployment files. Write it under `## Context` in `brief.md`.
 - **Exit:** `brief.md` exists and the team is picked.
 
@@ -98,8 +98,8 @@ Role: **product-owner** (with QA and SRE to present evidence).
 Roles: all roles that took part. Continue each with one short prompt.
 
 - Each role posts at most two `lesson` items on the board: what went well, what to change. Facts about the repo that will help next time count, for example "integration tests need `docker compose up db` first".
-- The facilitator writes `report.md` using the template in `artifacts.md`, sets `status.md` to done, and keeps the lessons as described in `collaboration.md` (memory store: `mem board promote --run <run-id>`).
-- **Exit:** `report.md` is written and lessons are kept.
+- The facilitator writes `report.md` using the template in `artifacts.md`, sets `status.md` to done, and lists the lessons in it as described in `collaboration.md`.
+- **Exit:** `report.md` is written with the lessons.
 
 ---
 

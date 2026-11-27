@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0
+- The skill knows no memory tool again: no memory commands or tool names anywhere. The run folder goes where the session's long-term memory instructions put team runs, if they give a place; otherwise `.sdlc-team/<run-id>/`. What is saved to memory, when, and in which drawer is the memory's own job.
+- One board format for every run: one file per post in `<run folder>/board/`.
+- Lessons from the retrospective are listed in `report.md`.
+
 ## 1.2.0
 - One shared place per run. With agent-memory enabled, the run folder and board live in that project's memory (`mem board path`, `mem board` commands), and the retro's lessons become project notes (`mem board promote`). Without it, the run uses `.sdlc-team/<run-id>/` and adds it to `.gitignore`.
 - New `status.md` in every run: current step, item status, who's waiting on what, blockers, next step. Updated after each step; every role reads it first.

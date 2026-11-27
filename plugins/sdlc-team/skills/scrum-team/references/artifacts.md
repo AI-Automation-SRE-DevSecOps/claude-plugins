@@ -1,6 +1,6 @@
 # Run folder and templates
 
-Every run has one **run folder**, picked at intake (see "Pick the store" in `collaboration.md`): the path from `mem board path --run <run-id>` with the memory store, or `.sdlc-team/<run-id>/` in the project with the file store. All the files below are inside the run folder, never in the project root. Only product code and tests go in the project.
+Every run has one **run folder**, picked at intake (see "Pick the run folder" in `collaboration.md`): the place the session's long-term memory instructions give for team runs, or `.sdlc-team/<run-id>/` in the project. All the files below are inside the run folder, never in the project root. Only product code and tests go in the project.
 
 | File | Owner | Written in |
 |---|---|---|
@@ -16,7 +16,7 @@ Every run has one **run folder**, picked at intake (see "Pick the store" in `col
 | `incident.md`, `postmortem.md` | facilitator (IC), business-analyst (timeline) | Incident workflow |
 | `vuln.md` | security-engineer | CVE workflow |
 | `report.md` | facilitator | End |
-| board | everyone | always (memory store: `mem board`; file store: `board/`) |
+| `board/` | everyone | always |
 
 Several roles may write to `backlog.md`. Each role edits only its own sections or fields. When two roles might write at the same time, the later one re-reads the file first.
 
@@ -42,7 +42,7 @@ ITEM-1 <title>: <todo | in progress | review | testing | done | rejected (round 
 ```markdown
 # <run-id>
 Type: delivery | incident | cve      Started: <date>
-Store: memory | files      Run folder: <absolute path>      Project folder: <repo path>
+Run folder: <absolute path>      Project folder: <repo path>
 ## Work item
 <verbatim text, ticket key or link>
 ## Context
